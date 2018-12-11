@@ -9,6 +9,13 @@ class App extends Component {
       username: '',
       currentItem: ''
     }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
   render() {
@@ -22,8 +29,12 @@ class App extends Component {
         <div className="container">
           <section className="add-item">
             <form>
-              <input type="text" name="username" placeholder="Jina lako nani?" />
-              <input type="text" name="currentItem" placeholder="Waleta mapishi yapi?" />
+              <input type="text" name="username" placeholder="Jina lako nani?" onChange={this.handleChange}
+                value={this.state.username}
+              />
+              <input type="text" name="currentItem" placeholder="Waleta mapishi yapi?"
+                onChange={this.handleChange} value={this.state.currentItem}
+              />
               <button>Ongeza mapishi</button>
             </form>
           </section>
