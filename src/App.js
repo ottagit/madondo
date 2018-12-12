@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   handleSubmit(e) {
-    e.prevetDefault();
+    e.preventDefault();
     const itemsRef = firebase.database().ref('items');
     const item = {
       title: this.state.currentItem,
